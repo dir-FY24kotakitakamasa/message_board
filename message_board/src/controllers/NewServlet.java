@@ -35,7 +35,15 @@ public class NewServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        EntityManager em = DBUtil.createEntityManager();
+        
+        request.setAttribute("_token", request.getSession().getId());
+        
+        request.setAttribute("message", new Message());
+        
+        var rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+        rd.forward(request, response);
+        
+        /*EntityManager em = DBUtil.createEntityManager();
         em.getTransaction().begin();
         
         Message m = new Message();
@@ -55,7 +63,7 @@ public class NewServlet extends HttpServlet {
  
         response.getWriter().append(Integer.valueOf(m.getId()).toString());
     
-        em.close();
+        em.close();*/
     }
 
 }
