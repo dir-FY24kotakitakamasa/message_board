@@ -11,7 +11,7 @@
 					<tbody>
 						<tr>
 							<th>タイトル</th>
-							<td><c:out value="${message.title }" /></td>
+							<td><c:out value="${message.title}" /></td>
 						</tr>
 						<tr>
 							<th>メッセージ</th>
